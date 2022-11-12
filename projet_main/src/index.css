@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f3f3f3;
+  background-image: url("./bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  margin: 2rem 0 1rem 0;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+input {
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #114492;
+  color: #f3f3f3;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #135fd1;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.nutriments ul {
+  display: flex;
+  width: 35rem;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+
+.repas {
+  display: flex;
+  
+}
+
+img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+  background-color: #f3f3f3;
+}
+
+ul {
+  list-style: none;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  background-color: #114492;
+  color: #f3f3f3;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+a:hover {
+  background-color: #135fd1;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .meals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nutriments ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
