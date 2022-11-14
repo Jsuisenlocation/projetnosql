@@ -11,7 +11,7 @@
 === A FAIRE ===
 A priori : elasticsearch+postgresql
 
--mettre en place elasticsearch
+-mettre en place elasticsearch (si possible pour recupérer la conso total de nutriments)
 -Faire les 3 docker 
 
 
