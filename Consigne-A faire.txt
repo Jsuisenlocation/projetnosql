@@ -1,5 +1,4 @@
-PROJET NOSQL
-
+===CONSIGNE==
 
 -Constituer une app web simple, avec au moins une page avec un formulaire qui puisse récupérer des données écrites par un utilisateur et qui les persiste dans au moins deux systemes différents parmi : postgresql - redis - mongodb - neo4j - elasticsearch
 
@@ -8,4 +7,12 @@ PROJET NOSQL
 -Je doit pourvoir git clone, jouer docker compose up pour interagir avec l'interface web, lancer au moins deux terminaux pour me connecter à chacun des systemes de persistance et constater la persistance.
 
 -Le format de restitution est un espace sur github
+
+=== A FAIRE ===
+A priori : elasticsearch+postgresql
+
+-Tenter de débug le projetweb (peut etre du a la ligne que j'ai retirer au debut avec http)
+-Chercher un projet utilisant les deux technos  (potentiellement utiliser les autres technos)
+-Faire les 3 docker 
+
 

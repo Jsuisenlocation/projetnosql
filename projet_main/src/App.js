@@ -52,38 +52,6 @@ function App() {
     
   }
 
-  function affiche() {
-    
-    axios
-    .get("http://127.0.0.1:8080/select/"+User)
-    .then((res) => setSelect(res.data));
-    AfficheSave(select[i].identifiant);
-  }
-
-
-
-  
-  function affiche2() {
-    
-    axios
-    .get("http://127.0.0.1:8080/select2")
-    .then((res) => setSelect2(res.data));
-    console.log(select2);
-    
-  }
-
-
-  function loop(){
-    const id1 = mealData.meals[0].id
-    const id2 = mealData.meals[1].id
-    const id3 = mealData.meals[2].id
-    const id4 = User
-    const id5 = mealData.nutrients.protein.toFixed(0)
-    const id6 = mealData.nutrients.carbohydrates.toFixed(0)
-    const id7 = mealData.nutrients.fat.toFixed(0)
-    save(id1, id2, id3, id4, id5, id6, id7);
-  }
-
   function AfficheSave(selected) {//utilise une fonction pour afficher l'image du repas en fonction de l'id du repas que l'on a recup
     fetch(
       `https://api.spoonacular.com/recipes/${selected}/information?apiKey=3fbe15356d1b4dd085cdacecf1df436f&includeNutrition=false`
@@ -99,8 +67,43 @@ function App() {
       .catch(() => {
         console.log("error");
       });
-     
+      
   }
+
+  function affiche() {
+    
+    axios
+    .get("http://127.0.0.1:8080/select/"+User)
+    .then((res) => setSelect(res.data));
+    console.log("bonjour"+select[i].identifiant)
+    AfficheSave(select[i].identifiant);
+  }
+
+
+
+  
+  function affiche2() {
+    
+    axios
+    .get("http://127.0.0.1:8080/select2")
+    .then((res) => setSelect2(res.data));
+    console.log(select2);
+    
+  }
+  
+
+  function loop(){
+    const id1 = mealData.meals[0].id
+    const id2 = mealData.meals[1].id
+    const id3 = mealData.meals[2].id
+    const id4 = User
+    const id5 = mealData.nutrients.protein.toFixed(0)
+    const id6 = mealData.nutrients.carbohydrates.toFixed(0)
+    const id7 = mealData.nutrients.fat.toFixed(0)
+    save(id1, id2, id3, id4, id5, id6, id7);
+  }
+
+  
 
 
   function it(){
