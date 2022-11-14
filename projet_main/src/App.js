@@ -14,7 +14,6 @@ function App() {
   const [servings, setservings] = useState("");
   const [sourceUrl, setsourceUrl] = useState("");
   const [title, setTitle] = useState("");
-  const [select2, setSelect2] = useState([{prot_total : 0, gluc_total : 0, lip_total : 0}]);
 
   var i = 0;
 
@@ -70,26 +69,29 @@ function App() {
       
   }
 
+  /*function affiche2(){
+    const requestOptions = {
+      method: "GET",
+
+    };
+    fetch("http://127.0.0.1:8080/select2, requestOptions)
+      .then((res) =>
+        res.json().then((data) => {
+          console.log(data.rows[i].identifiant)
+        })
+      )
+      .catch((err) => console.log(err));
+  };*/
+
   function affiche() {
     
     axios
     .get("http://127.0.0.1:8080/select/"+User)
     .then((res) => setSelect(res.data));
-    console.log("bonjour"+select[i].identifiant)
-    AfficheSave(select[i].identifiant);
+    console.log(select.rows[i].identifiant)
+    AfficheSave(select.rows[i].identifiant);
   }
 
-
-
-  
-  function affiche2() {
-    
-    axios
-    .get("http://127.0.0.1:8080/select2")
-    .then((res) => setSelect2(res.data));
-    console.log(select2);
-    
-  }
   
 
   function loop(){
@@ -132,9 +134,8 @@ function App() {
           onChange={handleChange3}
         />
 
-        <h1>Les consommations total de nutriments sont de : {select2[0].prot_total} proteines, {select2[0].gluc_total} glucides, {select2[0].lip_total} lipides !</h1>
         <button onClick={getMealData}>Générer des recettes !</button> 
-        <button onClick={() => { loop(); affiche2();}}>Sauvegarger les recettes !</button>
+        <button onClick={() => { loop();}}>Sauvegarger les recettes !</button>
         <button onClick={affiche}>Afficher les recettes sauvegarder !</button>
         <button onClick={it}>Suivant</button>
       </section>
