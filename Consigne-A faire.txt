@@ -11,8 +11,7 @@
 === A FAIRE ===
 A priori : elasticsearch+postgresql
 
--Tenter de débug le projetweb (peut etre du a la ligne que j'ai retirer au debut avec http)
--Chercher un projet utilisant les deux technos  (potentiellement utiliser les autres technos)
+-mettre en place elasticsearch
 -Faire les 3 docker 
 
 
