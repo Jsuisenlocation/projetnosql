@@ -1,0 +1,35 @@
+--==▊▊.ELASTICSEARCH.▊▊==--
+==================================================================================
+-DDL zip sur le site
+-le mettre ici cd C:\elasticsearch-8.5.0
+-lancer avec .\bin\elasticsearch.bat
+-allez voir sur https://localhost:9200
+-user : elastic & password : hLJd5XWzjcMz8faRT_PL
+==================================================================================
+
+--==▊▊.KIBANA.▊▊==-- 
+==================================================================================
+-DDL zip sur le site
+-le mettre ici cd C:\kibana-8.5.0
+-lancer avec .\bin\kibana.bat
+-aller sur http://localhost:5601/?code=205676
+-aller dans le repertoire elasticsearch et entrer ça pour recup la clé :
+bin\elasticsearch-create-enrollment-token.bat --scope kibana
+==================================================================================
+
+--==▊▊.REACT INTEGRATION SEARCH TOOL.▊▊==--
+==================================================================================
+https://www.npmjs.com/package/react-elasticsearch 
+==================================================================================
+
+--==▊▊.CODE USEFULL POUR INJECT LES DATA DANS ELASTIC.▊▊==--
+==================================================================================
+https://www.logisticinfotech.com/blog/elasticsearch-connectivity-from-reactjs/
+==================================================================================
+
+--==▊▊.VIDEO USEFULL.▊▊==--
+==================================================================================
+https://www.youtube.com/watch?v=awTNjj1dONw
+https://www.youtube.com/watch?v=1_qy8_5ApY8
+https://www.youtube.com/watch?v=RUw1WUsRuH8
+==================================================================================
