@@ -14,7 +14,6 @@ function App() {
   const [servings, setservings] = useState("");
   const [sourceUrl, setsourceUrl] = useState("");
   const [title, setTitle] = useState("");
-
   var i = 0;
 
   function getMealData() {
@@ -69,19 +68,6 @@ function App() {
       
   }
 
-  /*function affiche2(){
-    const requestOptions = {
-      method: "GET",
-
-    };
-    fetch("http://127.0.0.1:8080/select2, requestOptions)
-      .then((res) =>
-        res.json().then((data) => {
-          console.log(data.rows[i].identifiant)
-        })
-      )
-      .catch((err) => console.log(err));
-  };*/
 
   function affiche() {
     
@@ -105,7 +91,7 @@ function App() {
     save(id1, id2, id3, id4, id5, id6, id7);
   }
 
-  
+
 
 
   function it(){
@@ -133,7 +119,6 @@ function App() {
           placeholder="Pseudo"  
           onChange={handleChange3}
         />
-
         <button onClick={getMealData}>Générer des recettes !</button> 
         <button onClick={() => { loop();}}>Sauvegarger les recettes !</button>
         <button onClick={affiche}>Afficher les recettes sauvegarder !</button>

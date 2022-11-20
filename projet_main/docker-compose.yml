@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  postgr:    
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: root 
+      POSTGRES_DB: projetnosql 
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+
+  mongod:
+    image: 'mongo:latest'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ''
+      MONGO_INITDB_ROOT_PASSWORD: ''
+    ports:
+      - 27017:27017
+
+  react:
+    build: ./src
+    container_name: react
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+
+  node:
+    build: ./backend
+    container_name: node
+    ports:
+      - '5000:5000'

@@ -9,6 +9,45 @@ const pool = new Pool({
   password: 'root',
   port: 5432,
 });
+const cors = require('cors');
+app.use(cors())
+//================================================================================================
+
+var mongoose = require('mongoose');
+ 
+// make a connection 
+mongoose.connect('mongodb://127.0.0.1:27017/nosql');
+ 
+// get reference to database
+var db = mongoose.connection;
+ 
+db.on('error', console.error.bind(console, 'connection error:'));
+ 
+db.once('open', function() {
+    console.log("Connection Successful!");
+     
+    // define Schema
+    var colSchema = mongoose.Schema({
+      name: String,
+    });
+ 
+    // compile schema to model
+    var Pseud = mongoose.model('Pseud', colSchema, 'nosql');
+ 
+    // a document instance
+
+    var pseud1 = new Pseud({ name: 'Inserting data into mongo'});
+
+ 
+    // save model to database
+    pseud1.save(function (err, pseud) {
+      if (err) return console.error(err);
+      console.log(pseud.name + " saved to nosql collection.");
+    });
+     
+});
+
+//================================================================================================
 
 
 app.listen(8080, () => {
@@ -30,15 +69,7 @@ app.get('/select/:user', (req,res) => {
     });
   })
 
-  app.get('/select2', (req,res) => {
-    var sql1 = "SELECT prot_total, gluc_total, lip_total FROM table_calcul ORDER by id DESC limit 1";
-  
-    pool.query(sql1, function(err, results) {
-        if (err) throw err;
-        console.log("Select done sel2!(affiche les conso nutri.)");
-        res.send(results);
-    });
-  })
+
 
 app.get('/save/:id1/:id2/:id3/:id4/:id5/:id6/:id7', (req,res) => {
   const id1 = req.params.id1
