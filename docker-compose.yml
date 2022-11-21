@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+
+  postgr:    
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: root 
+      POSTGRES_DB: projetnosql 
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+    restart: always
+
+  mongod:
+    image: 'mongo:latest'
+    ports:
+      - 27017:27017
+    restart: always
+  
+  node:
+    build:
+      dockerfile: Dockerfile
+      context: "./backend"
+    container_name: node
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - '5000:5000'
+    depends_on:
+      - postgr
+      - mongod   
+    links:
+      - "postgr:postgresql"
+
+  react:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: ./reactapp
+    volumes:
+      - /app/node_modules
+      - ./reactapp:/app
+    ports:
+      - '3000:3000'
+    tty: true
+    depends_on:
+      - postgr
+      - mongod 
+    links:
+      - "postgr:postgresql"

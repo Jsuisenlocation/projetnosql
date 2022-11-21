@@ -1,8 +1,0 @@
---==▊▊.CONSIGNE.▊▊==--
-==================================================================================
--Doit avoir au moins un fichier docker compose qui orchestre donc au moins 3 docker (un pour la partie server, et un par techno de stockage)
-
--Je doit pourvoir git clone, jouer docker compose up pour interagir avec l'interface web, lancer au moins deux terminaux pour me connecter à chacun des systemes de persistance et constater la persistance.
-
--Le format de restitution est un espace sur github
-==================================================================================
