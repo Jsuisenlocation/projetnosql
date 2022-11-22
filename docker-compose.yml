@@ -20,14 +20,13 @@ services:
       - 27017:27017
     restart: always
   
-  node:
+  api:
     build:
       dockerfile: Dockerfile
-      context: "./backend"
-    container_name: node
+      context: "./server"
     volumes:
       - /app/node_modules
-      - ./backend:/app
+      - ./server:/app
     ports:
       - '5000:5000'
     depends_on:
@@ -36,14 +35,14 @@ services:
     links:
       - "postgr:postgresql"
 
-  react:
+  client:
     stdin_open: true
     build:
       dockerfile: Dockerfile
-      context: ./reactapp
+      context: ./client
     volumes:
       - /app/node_modules
-      - ./reactapp:/app
+      - ./client:/app
     ports:
       - '3000:3000'
     tty: true
@@ -52,3 +51,14 @@ services:
       - mongod 
     links:
       - "postgr:postgresql"
+
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3050:80"
