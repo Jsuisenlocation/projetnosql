@@ -4,7 +4,7 @@ const app = express()
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
-  host: '172.24.0.3',
+  host: 'localhost',
   database: 'projetnosql',
   password: 'root',
   port: 5432,

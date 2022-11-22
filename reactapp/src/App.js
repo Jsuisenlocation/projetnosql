@@ -45,7 +45,7 @@ function App() {
   function save(id1,id2,id3,id4,id5,id6,id7) {
     
     axios
-    .get("http://172.24.0.3:8080/save/"+id1+"/"+id2+"/"+id3+"/"+id4+"/"+id5+"/"+id6+"/"+id7)
+    .get("http://localhost:8080/save/"+id1+"/"+id2+"/"+id3+"/"+id4+"/"+id5+"/"+id6+"/"+id7)
     .then((res) => console.log(res.data));
     
   }
@@ -72,7 +72,7 @@ function App() {
   function affiche() {
     
     axios
-    .get("http://172.24.0.3:8080/select/"+User)
+    .get("http://localhost:8080/select/"+User)
     .then((res) => setSelect(res.data));
     console.log(select.rows[i].identifiant)
     AfficheSave(select.rows[i].identifiant);
