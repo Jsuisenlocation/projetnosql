@@ -27,30 +27,24 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
-    ports:
-      - '5000:5000'
     depends_on:
       - postgr
       - mongod   
-    links:
-      - "postgr:postgresql"
 
   client:
     stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     build:
       dockerfile: Dockerfile
       context: ./client
     volumes:
       - /app/node_modules
       - ./client:/app
-    ports:
-      - '3000:3000'
-    tty: true
     depends_on:
       - postgr
       - mongod 
-    links:
-      - "postgr:postgresql"
+
 
   nginx:
     depends_on:

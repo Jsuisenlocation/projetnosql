@@ -1,0 +1,8 @@
+	-trouver nom du contenaire postgresql
+docker ps
+	-trouver le chemin du volume
+docker inspect -f '{{ json .Mounts }}' <nom contenaire> | python -m json.tool
+	-copier le fichier de bdd dans le volume
+docker cp <chemin fichier bdd a dump> <nom contenaire>:<chemin volume>
+	-injecter la bdd dans une bdd existante a partir du fichier qu'on a copier
+docker exec <nom contenaire>pg_restore -U <owner bdd, generalement postrges> -d <bdd a ecraser> <chemin volume><chemin fichier bdd a dump>
